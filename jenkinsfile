@@ -1,0 +1,31 @@
+pipeline {
+    agent 
+    {
+        label 'dotnet5_0_jokes'
+    }
+    stages 
+    {  
+       stage('Checkout') 
+       {    
+           steps 
+           {      
+               git(url:'https://github.com/UWTSDStudents/jokeapi.git')
+           }  
+        }  
+        stage('Compile') 
+        {    
+            steps 
+            {      
+                sh 'dotnet clean'      
+                sh 'dotnet builds'    
+            }  
+         }  
+        stage('Test') 
+        {    
+            steps 
+           {            
+                sh 'dotnet test'    
+            }  
+        }
+    }   
+}
