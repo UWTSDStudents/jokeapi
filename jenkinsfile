@@ -1,8 +1,9 @@
 pipeline {
     agent 
     {
-        label 'dotnet5_0_jokes'
+        label 'dotnet5_0'
     }
+	
     stages 
     {  
        stage('Checkout') 
