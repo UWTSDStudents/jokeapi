@@ -19,12 +19,19 @@ pipeline {
                 sh 'dotnet clean'      
                 sh 'dotnet build'    
             }  
-         }  
+        }  
         stage('Test') 
         {    
             steps 
-           {            
+			{            
                 sh 'dotnet test'    
+            }  
+        }
+		stage('Deploy') 
+        {    
+            steps 
+			{            
+                sh 'dotnet publish jokeapi/jokeapi.csproj -c Release -o jokeapi/out'    
             }  
         }
     }   

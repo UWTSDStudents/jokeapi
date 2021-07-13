@@ -15,6 +15,13 @@ RUN sudo dotnet tool install --global coverlet.console
 RUN echo "export PATH=\${PATH}:/root/.dotnet/tools" >> ~/.bashrc
 RUN sudo apt-get install -y vim
 
+#RUN adduser \
+#  --disabled-password \
+#  --home /app \
+#  --gecos '' AAA \
+#  && chown -R AAA /app
+#USER AAA
+
 # drop back to the regular jenkins user - good practice
 #USER jenkins
 

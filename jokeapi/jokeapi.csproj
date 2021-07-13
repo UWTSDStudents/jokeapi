@@ -11,5 +11,12 @@
   <ItemGroup>
     <ProjectReference Include="..\jokeapilib\jokeapilib.csproj" />
   </ItemGroup>
+  
+  <!-- Avoid nesting the publish 'out' directory -->
+  <ItemGroup>
+    <Content Update="out\**\*">
+      <CopyToPublishDirectory>Never</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
 
 </Project>
