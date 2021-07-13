@@ -27,11 +27,15 @@ pipeline {
                 sh 'dotnet test'    
             }  
         }
-		stage('Deploy') 
+		stage('Publish') 
         {    
             steps 
 			{            
-                sh 'dotnet publish jokeapi/jokeapi.csproj -c Release -o jokeapi/out'    
+                sh 'dotnet publish jokeapi/jokeapi.csproj -c Release -o jokeapi/out'
+				docker.withRegistry('mikeduwtsd/dotnetjokeapi')
+				{
+					docker.build('jokeapi').push('latest')
+				}				
             }  
         }
     }   
