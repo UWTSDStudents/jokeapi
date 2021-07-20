@@ -32,9 +32,12 @@ pipeline {
             steps 
 			{            
                 sh 'dotnet publish jokeapi/jokeapi.csproj -c Release -o jokeapi/out'
-				docker.withRegistry('mikeduwtsd/dotnetjokeapi')
+				script
 				{
-					docker.build('jokeapi').push('latest')
+                    docker.withRegistry('https://registry.hub.docker.com', 'DockerHubPubRepoKey')
+					{
+						docker.build('mikeduwtsd/dotnetjokeapi').push('latest')
+					}
 				}				
             }  
         }

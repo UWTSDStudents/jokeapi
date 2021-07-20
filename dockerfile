@@ -1,3 +1,7 @@
+# This dockerfile is just for creating a Unix container
+# that can be used for building and running dotnet code.
+# It is not related to Jenkins, use it to play around
+# and test the code (see README file).
 FROM ubuntu
 
 # if we want to install via apt
